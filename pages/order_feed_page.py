@@ -27,7 +27,7 @@ class OrderFeedPage(BasePage):
     @allure.step('Проверка наличия заказа в разделе "В работе"')
     def is_order_in_progress(self, order_number):
         self.wait_element_visible(OrderFeedLocators.IN_PROGRESS_ORDERS)
-        elements = self.driver.find_elements(*OrderFeedLocators.IN_PROGRESS_ORDERS)
+        elements = self.find_elements(OrderFeedLocators.IN_PROGRESS_ORDERS)
         for element in elements:
             if element.text == order_number:
                 return True

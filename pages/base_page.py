@@ -106,3 +106,10 @@ class BasePage:
         self.find_clickable_element(locator).click()
         self.wait_element_invisible(loading_locator)  
 
+    @allure.step('Поиск всех элементов по локатору: {locator}')
+    def find_elements(self, locator):
+        return self.driver.find_elements(*locator)
+
+    @allure.step('Ожидание перехода на URL: {url}')
+    def wait_url_to_be(self, url):
+        self.wait.until(EC.url_to_be(url))
